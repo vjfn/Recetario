@@ -86,12 +86,20 @@ public class VentanaPrincipalControler implements Initializable {
         listTipo.getItems().addAll("Desayuno","Segundo desayuno","Almuerzo","Sobrealmurezo","Merienda","Cena","Recena","Postcena");
         listTipo.getSelectionModel().selectFirst();
 
-        sliderDuracion.valueProperty().addListener((observableValue, number, t1) -> labelDuracion.setText(Math.round(sliderDuracion.getValue()) + " min"));
+        sliderDuracion.valueProperty().addListener((observableValue, number, t1) -> labelDuracion.setText(t1.intValue() + " min"));
 
-        cNombre.setCellValueFactory((fila)-> {
-            String nombre = fila.getValue().getNombre();
-            return new SimpleStringProperty(nombre);
-        } );
+//        txtNombre.textProperty().addListener( (ob,vold,vnew) ->{info.setText("antiguo: "+vold+" nuevo: "+ vnew);} );
+
+        tabla.getSelectionModel().selectedItemProperty().addListener(
+                (observable, vOld, vNew) -> {
+                    info.setText(vNew.toString());
+                    txtNombre.setText(vNew.getNombre());
+                    sliderDuracion.setValue(vNew.getDuracion());
+                    listTipo.getSelectionModel().select(vNew.getTipo());
+                    comboDificultad.getSelectionModel().select(vNew.getDificultad());
+                }
+        );
+
 
         cDificultad.setCellValueFactory((fila)-> new SimpleStringProperty(fila.getValue().getDificultad()));
 

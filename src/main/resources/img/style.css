@@ -1,0 +1,28 @@
+.ventana{
+    -fx-background-image: url("fondo.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    /*-fx-background-color: yellow;*/
+}
+
+.transparente{
+    -fx-background-color: rgba(0,0,0,0.5);
+}
+
+
+#titulo{
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Comic Sans MS";
+}
+
+#tabla td{
+    -fx-font-size: 30px;
+
+}
+
+.info{
+    -fx-background-color: green;
+    -fx-padding: 5px 20px;
+    -fx-color:white;
+}

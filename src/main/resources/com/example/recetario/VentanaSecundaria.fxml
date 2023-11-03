@@ -1,19 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.recetario.VentanaSecundariaControler">
    <center>
-      <VBox alignment="CENTER" prefHeight="143.0" prefWidth="162.0" BorderPane.alignment="CENTER">
+      <FlowPane prefHeight="460.0" prefWidth="519.0">
          <children>
-            <Spinner fx:id="spinner" />
-            <Label fx:id="info" text="Label" />
-            <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#volver" text="Volver" />
+            <VBox alignment="CENTER" prefHeight="460.0" prefWidth="565.0" spacing="20.0">
+               <children>
+                  <Label fx:id="infoSecundaria" text="Detalle de Receta">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+                  <FlowPane alignment="CENTER" prefHeight="25.0" prefWidth="457.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <children>
+                        <TextField fx:id="cNombre" alignment="CENTER" prefHeight="25.0" prefWidth="420.0" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </FlowPane>
+                  <HBox prefHeight="100.0" prefWidth="442.0" spacing="20.0">
+                     <children>
+                        <ComboBox fx:id="cDificultad" prefWidth="150.0" />
+                        <ComboBox fx:id="cTipo" prefWidth="150.0" />
+                        <Spinner fx:id="spinner2" prefHeight="25.0" prefWidth="49.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="40.0" right="40.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" spacing="20.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="Actualizar" />
+                        <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#volver" text="Volver" />
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
          </children>
-      </VBox>
+      </FlowPane>
    </center>
 </BorderPane>

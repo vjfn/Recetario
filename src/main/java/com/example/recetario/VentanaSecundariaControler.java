@@ -15,9 +15,15 @@ public class VentanaSecundariaControler implements Initializable{
     @javafx.fxml.FXML
     private Button btnVolver;
     @javafx.fxml.FXML
-    private Label info;
+    private TextField cNombre;
     @javafx.fxml.FXML
-    private Spinner<Double> spinner;
+    private ComboBox cDificultad;
+    @javafx.fxml.FXML
+    private ComboBox cTipo;
+    @javafx.fxml.FXML
+    private Spinner spinner2;
+    @javafx.fxml.FXML
+    private Label infoSecundaria;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -26,10 +32,23 @@ public class VentanaSecundariaControler implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        Receta r = Session.getRecetaActual();
-        info.setText(r.toString());
 
-        spinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(0,10,5,0.25));
+        Receta r = Session.getRecetaActual();
+        System.out.println(r);
+        infoSecundaria.setText(r.toString());
+
+
+        spinner2.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(0,180,60,5));
+
+        cDificultad.getItems().addAll("Fácil","Moderada","Difícil");
+        cDificultad.setValue(r.getDificultad());
+
+        cTipo.getItems().addAll("Desayuno","Segundo desayuno","Almuerzo","Sobrealmurezo","Merienda","Cena","Recena","Postcena");
+        cTipo.setValue(r.getTipo());
+
+        cNombre.setText(r.getNombre());
+
+
     }
 
 

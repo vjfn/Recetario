@@ -78,9 +78,9 @@ public class VentanaPrincipalControler implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        Media sonido = new Media(HelloApplication.class.getClassLoader().getResource("audio/clic.wav"));
-        mediaPlayer = new MediaPlayer(sonido);
+//TODO poner la url correcta
+//        Media sonido = new Media(HelloApplication.class.getClassLoader().getResource("audio/clic.wav"));
+//        mediaPlayer = new MediaPlayer(sonido);
 
         comboDificultad.getItems().add("Fácil");
         comboDificultad.getItems().add("Medio");
@@ -199,6 +199,8 @@ public class VentanaPrincipalControler implements Initializable {
 
     @FXML
     public void mostrarReceta(ActionEvent actionEvent) {
+        Session.setRecetaActual( comboRecetas.getSelectionModel().getSelectedItem() );
+        System.out.println(Session.getRecetaActual());
         HelloApplication.loadFMXL("VentanaSecundaria.fxml");
     }
 }
